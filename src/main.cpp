@@ -30,11 +30,11 @@ void loop() {
   for(int j=0; j<3; j++){
     if(sem1[j][1]==1||sem2[j][1]==1){
       for (int i=0; i<4; i++){
-        if(t_actual-t_anterior1 >= t_delaya){ 
-          t_anterior1 = t_actual;
+        if(t_actual-t_anterior1 >= t_delaya){ //si la resta entre tiempo actual(0) y tiempo anterior es menor a lo requerido (1500) se saltea esta orden
+          t_anterior1 = t_actual;             //si es mayor o igual funciona bien y al terminar de ejecutar todo se igualan los tiempos haciendo que se saltee la orden
           digitalWrite(pines1[j], sem1[i][j]);
           digitalWrite(pines2[j], sem2[i][j]);
-        }
+        } 
       }
     }else{
       for (int i=0; i<4; i++){
